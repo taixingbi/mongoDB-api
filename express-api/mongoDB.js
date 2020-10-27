@@ -9,6 +9,7 @@ function mongoDB_get(db_name, collection_name){
   console.log("collection_name: ", collection_name);
 
   //var uri = "mongodb://54.87.133.19:27017/test";
+  //var uri = "mongodb://kaden:1234@54.87.133.19:27017/ml-test";
   var uri = "mongodb://" + username + ":" + password + "@54.87.133.19:27017/" + db_name;
 
   mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -19,7 +20,7 @@ function mongoDB_get(db_name, collection_name){
 
     connection.db.collection(collection_name, function(err, collection){
       collection.find({}).toArray(function(err, data){
-          console.log(data); // it will print your collection data
+          console.log("--------->",data); // it will print your collection data
       })
     });
 
@@ -29,15 +30,14 @@ function mongoDB_get(db_name, collection_name){
 // db_name= "ml-test";
 // collection_name= "col3";
 
-db_name= "aws-transcribe-result-test-tmp";
-collection_name= "col1";
-mongoDB_get(db_name, collection_name);
+// db_name= "aws-transcribe-result-test-tmp";
+// collection_name= "col1";
+// mongoDB_get(db_name, collection_name);
 
 
 function mongoDB_post(db_name, collection_name){
   console.log("db_name: ", db_name);
   console.log("collection_name: ", collection_name);
-
   var uri = "mongodb://" + username + ":" + password + "@54.87.133.19:27017/" + db_name;
   // var uri = "mongodb://54.87.133.19:27017/test";
 
@@ -80,8 +80,8 @@ function mongoDB_post(db_name, collection_name){
 
 // db_name= "ml-test";
 // collection_name= "col1";
-// db_name= "aws-transcribe-result-test-tmp";
-// collection_name= "col1";
-// mongoDB_post(db_name, collection_name)
+db_name= "aws-transcribe-result-test-tmp";
+collection_name= "col1";
+mongoDB_post(db_name, collection_name)
 
 console.log("done");

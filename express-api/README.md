@@ -1,8 +1,11 @@
 
-#### run node mongoose
+install
 ```
-node mongoose
+npm install express
+npm install --save mongodb
 ```
 
-#### install 
-npm i mongoose
+run
+```
+http://localhost:3000/api/ml-test/col
+```
